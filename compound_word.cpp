@@ -9,7 +9,7 @@ using namespace std;
 using namespace std::chrono;
 
 bool isCompoundWord(const string& word, const unordered_set<string>& wordSet) {
-    if (word.empty()) {
+    if (word.empty()) { //not a compound word
         return false;
     }
 
