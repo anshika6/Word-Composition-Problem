@@ -1,1 +1,11 @@
 # Word-Composition-Problem
+Header files: The code includes necessary C++ standard library headers for input/output, file operations, string manipulation, time measurement, and data structures like unordered_set.
+isCompoundWord Function: The function takes a word and an unordered_set of words as input and checks if the word can be split into two smaller words found in the set. It does this by iterating through the word and checking all possible prefix-suffix combinations using substr() method . Prefix contains the characters from the beginning of the word up to index i, while suffix contains the characters from index i to the end of the word. If both the prefix and suffix are found in the set, it returns true, indicating that the word is a compound word otherwise it returns false. The ifstream class is a part of the C++ Standard Library and is used for reading from files.
+Main Function:
+The program begins by opening two input files ("Input_01.txt" and "Input_02.txt") to read words from. ifstream creates an input file stream named inputFile1 and inputFile2 and associates it with the file "Input_01.txt" and "Input_02.txt" respectively.
+It checks if the input files were successfully opened and displays an error message if there was an issue.
+A vector wordList to store the list of words read from the files and an unordered_set wordSet to efficiently check whether the word is present in the wordlist or not.
+Words are read from both input files and inserted into the vector and the unordered_set. This way, the list of words is stored in a vector for later use, and the unordered_set is used to quickly check for the existence of words.
+The program measures the time taken to read and process the input files by recording the start and end times using the <chrono> library.
+The code then finds the longest and second longest compound words by iterating through the words in the wordList vector. If a word is a compound word, it is checked against the longest and second longest words found so far, and these values are updated accordingly.
+After processing all words, the program records the end time, calculates the duration, and displays the longest and second longest compound words, as well as the time taken to process the input files in milliseconds.
