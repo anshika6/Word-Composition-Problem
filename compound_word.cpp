@@ -8,22 +8,32 @@
 using namespace std;
 using namespace std::chrono;
 
-bool isCompoundWord(const string& word, const unordered_set<string>& wordSet) {
-    if (word.empty()) { //not a compound word
+bool isCompoundWord(const string &word, const unordered_set<string> &wordSet)
+{
+    if (word.empty())
+    {
         return false;
     }
 
     int len = word.length();
 
-    for (int i = 1; i < len; ++i) {
+    for (int i = 1; i < len; ++i)
+    {
         string prefix = word.substr(0, i);
         string suffix = word.substr(i);
 
-        if (wordSet.count(prefix) && wordSet.count(suffix)) {
-            return true;
+        if (wordSet.count(prefix))
+        {
+            if (wordSet.count(suffix))
+            {
+                return true;
+            }
+            else if (isCompoundWord(suffix, wordSet))
+            {
+                return true;
+            }
         }
     }
-
     return false;
 }
 
@@ -81,7 +91,6 @@ int main() {
 }
 
 // output
-/*Longest Compounded Word  :  electroencephalographically     
-Second Longest Compounded Word  :  immunoelectrophoretically
-Time taken to process input files: 233 milliseconds  */
-
+/*Longest Compounded Word : electroencephalographically
+Second Longest Compounded Word : immunoelectrophoretically
+Time taken to process input files : 544 milliseconds*/
